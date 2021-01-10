@@ -1,0 +1,10 @@
+<?php
+include_once"../base.php";
+if($_POST['username']=='admin'){
+    if($_POST['pw']=='fish'){
+        to('../back.php');
+    }
+}
+else{
+    to('login.html');
+}
