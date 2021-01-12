@@ -1,0 +1,121 @@
+@font-face {
+  font-family: "neue_montrealbold";
+  src: url("fonts/neuemontreal-bold-webfont.woff2") format("woff2"),
+    url("fonts/neuemontreal-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "neue_montrealregular";
+  src: url("fonts/neuemontreal-regular-webfont.woff2") format("woff2"),
+    url("fonts/neuemontreal-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "neue_montrealmedium";
+  src: url("fonts/neuemontreal-medium-webfont.woff2") format("woff2"),
+    url("fonts/neuemontreal-medium-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (max-width: 1024px) {
+  .right{
+    display:none!important;
+    
+  }
+  .left{
+    width:30rem!important;
+    margin:auto;
+    border-radius:10px!important;
+}
+}
+
+@media screen and (max-width: 635px) {
+  .left{
+    width:40rem!important;
+    height:30rem!important;
+    margin:auto;
+    border-radius:10px!important;
+}
+}
+
+:root {
+  --dark: black;
+  --light: whitesmoke;
+  --secondary: #eee;
+  --theme: #d6da5a;
+  --themeDarker: #caeae9;
+  --themeDarkest: #2a94a2;
+  --lightTheme: #fcfae7;
+  --peach: #ffc6a2;
+  --darkPeach: #f7906e;
+  --textHeader: whitesmoke;
+}
+
+body {
+  background-color: #787a77;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'neue_montrealmedium', sans-serif, monospace;
+}
+
+/* .container {
+  height: 80vh;
+  width: 70vw;
+} */
+
+/* left side form section */
+.left {
+  background-color: var(--lightTheme);
+  border-radius: 10px 0 0 10px;
+  height:35rem;
+  display:flex;
+  flex-direction:column;
+}
+/* right side signup section */
+.right {
+  background-image: url("https://images.unsplash.com/photo-1463123081488-789f998ac9c4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+  filter: grayscale(40%);
+  opacity:0.8;
+  background-size: cover;
+  color: white;
+  border-radius: 0 10px 10px 0;
+}
+.loginCap{
+  color: var(--themeDarkest);
+
+}
+.loginw{
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.plchldr{
+  height: 30px;
+  width: 100%;
+}
+form {
+
+  height: 70%;
+  width: 100%;
+  line-height: 4rem;
+}
+input[type="submit"]{
+  all: unset;
+  height: 3rem;
+  width: 80%;
+  border-radius: 20px;
+  background-color: var(--theme);
+  color: white;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+input[type="text"], input[type="password"]{
+  border-radius: 20px;
+}
+
+

@@ -3,11 +3,12 @@
 date_default_timezone_set("Asia/Taipei");
 session_start();
 
+$Bio=new DB('bio');
 
 
 
 class DB{
-    protected $dsn="mysql:host=localhost;dbname=db23;charset=utf8";
+    protected $dsn="mysql:host=localhost;dbname=resume;charset=utf8";
     protected $table="";
     protected $pdo="";
     function __construct($table){
@@ -93,6 +94,7 @@ class DB{
                 $tmp[]=sprintf("`%s`='%s'",$key,$value);
             }
             $sql="update  $this->table set ".implode(",",$tmp)." where `id`='{$arg['id']}'";
+            echo $sql;
         }else{
             //insert
 

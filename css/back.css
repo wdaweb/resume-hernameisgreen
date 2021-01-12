@@ -1,0 +1,56 @@
+:root {
+    --dark: #0C0D0C;
+    --light: whitesmoke;
+    --secondary: #eee;
+    --theme: #d6da5a;
+    --themeDarker: #caeae9;
+    --themeDarkest: #2a94a2;
+    --lightTheme: #fcfae7;
+    --peach: #ffc6a2;
+    --darkPeach: #f7906e;
+    --textHeader: whitesmoke;
+  }
+
+body{
+    background-color:var(--lightTheme)!important;
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 8vh;
+
+  width: 100%;
+  margin: 0;
+}
+.logo {
+  color: var(--themeDarkest);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 5px;
+  font-size: 20px;
+  margin-top:1rem;
+}
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  width: 70%;
+  text-decoration: none;
+  list-style: none;
+  text-transform: uppercase;
+  align-items: center;
+  margin-top:2rem!important;
+
+}
+.nav-links a {
+  color: var(--themeDarkest);
+  text-decoration: none;
+  margin-right: 10px;
+
+}
+.nav-active {
+  transform: scale(1);
+}
+.divider{
+    border-top: 3px solid var(--themeDarkest);
+}

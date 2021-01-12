@@ -1,0 +1,247 @@
+@media (max-width: 320px) {
+    body {
+      overflow-x: hidden !important;
+    }
+    .mid-sec-five {
+      padding: 0;
+    }
+    
+  }
+  @media (max-width: 400px) {
+    .mid-sec-one,
+    .mid-sec-two,
+    .mid-sec-three,
+    .mid-sec-four {
+      padding: 0 !important;
+      height: 100%;
+    }
+    .sec-one-text-box {
+      width: 100% !important;
+      text-align: justify;
+    }
+    .bm {
+      height: 32rem !important;
+    }
+    .intro-cap {
+      font-size: 2.5rem;
+      padding-left: 0.2rem;
+    }
+    h3 {
+      font-size: 1.2rem;
+    }
+    .short-intro {
+      text-align: justify;
+      margin-top: 2rem;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 2rem;
+    }
+    .mid-sec-two-row {
+      justify-content: center !important;
+    }
+    .card {
+      margin-top: 2rem;
+    }
+    .card04 {
+      margin-bottom: 2rem;
+    }
+    .right-element {
+      float: none !important;
+    }
+    .timeline-element-box {
+      height: auto !important;
+    }
+    .timeline::before {
+      left: 6% !important;
+    }
+    #ele-one::after {
+      bottom: 19rem !important;
+      left: -3.5rem !important;
+    }
+    #ele-two::after {
+      bottom: 13rem !important;
+      left: -3.5rem !important;
+    }
+    #ele-three::after,
+    #ele-four::after {
+      bottom: 20rem !important;
+      left: -3.5rem !important;
+    }
+    #ele-five::after {
+      bottom: 21rem !important;
+      left: -3.5rem !important;
+    }
+    #ele-six::after {
+      bottom: 18rem !important;
+      left: -3.5rem !important;
+    }
+    #ele-seven::after {
+      bottom: 18rem !important;
+      left: -3.5rem !important;
+    }
+    #ele-eight::after {
+      bottom: 20rem !important;
+      left: -3.5rem !important;
+    }
+    #ele-one {
+      margin-top: 2rem;
+    }
+    .element-content {
+      margin-left: 2rem !important;
+      width: 80% !important;
+    }
+    .mid-sec-four-row {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    .row-one,
+    .row-two,
+    .row-three {
+      margin-left: auto !important;
+      margin-right: auto !important;
+      text-align: center !important;
+    }
+    .row > * {
+      margin-bottom: 2rem !important;
+    }
+  }
+  @media (max-width: 900px) {
+    .sec-one-text-box {
+      width: 100% !important;
+      text-align: justify;
+    }
+    .short-intro {
+      text-align: justify;
+      margin-top: 2rem;
+      width: 100% !important;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 2rem;
+      text-align: unset !important;
+    }
+    .top-cap {
+      margin: 0;
+      padding: 0;
+      font-size: 4.5rem !important;
+    }
+    .top-cap-dsp {
+      font-size: 1.5rem !important;
+      color: var(--dark);
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+    #my-img {
+      transform: translateX(-10%);
+    }
+    .card {
+      margin-top: 2rem !important;
+    }
+    .card-header {
+      width: auto !important;
+      height: auto !important;
+    }
+    .mid-sec-two-row > * {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    .bm {
+      height: 45rem !important;
+      margin-top: -10rem !important;
+    }
+    .element-content {
+      width: 100% !important;
+    }
+    .timeline-element-box {
+      height: auto !important;
+      margin-left: 1rem;
+    }
+    .timeline::before {
+      left: 6% !important;
+    }
+    .right-element {
+      float: none !important;
+    }
+    #ele-one::after {
+      bottom: 19rem !important;
+      left: -3.5rem !important;
+    }
+    #ele-two::after {
+      bottom: 13rem !important;
+      left: -3.5rem !important;
+    }
+    #ele-three::after,
+    #ele-four::after {
+      bottom: 20rem !important;
+      left: -3.5rem !important;
+    }
+    #ele-five::after {
+      bottom: 21rem !important;
+      left: -3.5rem !important;
+    }
+    #ele-six::after {
+      bottom: 18rem !important;
+      left: -3.5rem !important;
+    }
+    #ele-seven::after {
+      bottom: 18rem !important;
+      left: -3.5rem !important;
+    }
+    #ele-eight::after {
+      bottom: 20rem !important;
+      left: -3.5rem !important;
+    }
+    #ele-one {
+      margin-top: 2rem;
+    }
+    .mid-sec-four-row {
+      margin-top: none !important;
+      width: auto !important;
+    }
+    .four-sub-cap {
+      font-size: 1.3rem !important;
+    }
+    .row-one,
+    .row-two,
+    .row-three {
+      margin-left: auto !important;
+      margin-right: auto !important;
+      text-align: center !important;
+    }
+    .row > * {
+      margin-bottom: 2rem !important;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    body {
+      overflow-x: hidden;
+    }
+    .nav-links {
+      position: absolute;
+      right: 0px;
+      height: 92vh;
+      top: 8vh;
+      display: flex;
+      flex-direction: Column;
+      background-color: var(--themeDarker);
+      align-items: center;
+      z-index: 1000;
+      width: 100% !important;
+      /*  transform:translateX(100%); */
+      transform: scale(0);
+      transition: transform 0.5s ease-in;
+    }
+    .nav-links li {
+      opacity: 0;
+    }
+    .burger {
+      display: block !important;
+      cursor: pointer;
+    }
+  }
+  @media screen and (max-width: 1024px) {
+    .nav-links {
+      width: 70% !important;
+    }
+  }
