@@ -4,8 +4,12 @@ date_default_timezone_set("Asia/Taipei");
 session_start();
 
 $Bio=new DB('bio');
-
-
+$Works=new DB('works');
+$Img=new DB('img');
+$Title=new DB('title');
+$Links=new DB('links');
+$Skills=new DB('skills');
+$Info = new DB('info');
 
 class DB{
     protected $dsn="mysql:host=localhost;dbname=resume;charset=utf8";
@@ -107,6 +111,11 @@ class DB{
     function q($sql){
         return $this->pdo->query($sql)->fetchALL();
     }
+   function setcol($col){
+       $sql="update $this->table set".$col;
+       echo $sql;
+       return $this->pdo->exec($sql);
+   }
 
 }
 

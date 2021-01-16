@@ -129,7 +129,7 @@ nav {
   width: 100%;
   max-width: 100%;
   background-color: var(--theme);
-  background-image: url("image/noise.png");
+  background-image: url("../image/noise.png");
   color: var(--light);
   padding: 0;
 }

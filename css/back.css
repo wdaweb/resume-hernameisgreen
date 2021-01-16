@@ -10,9 +10,12 @@
     --darkPeach: #f7906e;
     --textHeader: whitesmoke;
   }
-
+*{
+  font-family: 'Noto Serif TC', serif!important;
+}
 body{
     background-color:var(--lightTheme)!important;
+   
 }
 nav {
   display: flex;

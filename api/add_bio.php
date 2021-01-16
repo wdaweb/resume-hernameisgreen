@@ -12,4 +12,4 @@ if(isset ($_POST['save-it'])){
 
 $Bio->save($data);
 
-to('../back.php');
+to('../back.php?do=bio');
