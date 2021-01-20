@@ -7,7 +7,7 @@ $id=$_POST['id'];
 
 
     if(isset($_POST['del'])){
-        $id=$_POST['id'];
+       
         $Img->del($id);
     }
     else{

@@ -1,6 +1,6 @@
 <?php
 include_once "../base.php";
-$Skills = new DB('skills');
+
 
 $id=$_POST['id'];
 
@@ -10,23 +10,20 @@ $id=$_POST['id'];
         $Skills->del($id);
     }
     else{
-        $skills=$Skills->find($id);
-        $skills['name']=$_POST['name'];
-
-        $skills['tech']=($_POST['tech']);
+        $exps=$Exps->find($id);
+        $exps['name']=$_POST['name'];
+        $exps['title']=$_POST['title'];
+        $exps['start']=$_POST['start'];
+        $exps['end']=$_POST['end'];
+        print_r($_POST['list']);
+        $exps['list']=serialize($_POST['list']);
+        $exps['sh']=$_POST['sh'];
         
-        if(!empty($_POST['sh'])){
-            
-            $skills['sh']=1;
-        }else{
-            $skills['sh']=0;
-        }
-        
-        
-        $Skills->save($skills);
+        $Exps->save($exps);
         
 
     }
 
-    to('../back.php?do=skills');
+    //to('../back.php?do=skills');
    
+  

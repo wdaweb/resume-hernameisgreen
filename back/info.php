@@ -53,13 +53,14 @@
         <?=$info['shortintro']?>
         </textarea>
       </div>
-    <?php
-  }
-    ?>
 
     <div class="mt-3">
       <input type="submit" class="btn btn-theme" value="提交">
       <input type="reset" class="btn btn-theme" value="重置">
+      <input type="hidden" name="id" value=<?=$info['id']?> >
     </div>
     </form>
+    <?php
+  }
+    ?>
 </div>

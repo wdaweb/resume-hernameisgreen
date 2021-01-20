@@ -11,7 +11,7 @@
     --textHeader: whitesmoke;
   }
 *{
-  font-family: 'Noto Serif TC', serif!important;
+ /*  font-family: 'Noto Serif TC', serif; */
 }
 body{
     background-color:var(--lightTheme)!important;

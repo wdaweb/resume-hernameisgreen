@@ -2,12 +2,26 @@
 include_once "../base.php";
 $Info = new DB('info');
 
-$info['name']=$_POST['name']; 
-$info['engname']=($_POST['engname']);
-$info['birthday']=$_POST['birthday'];
-$info['hobbies']=serialize($_POST['hobbies']);
-$info['shortintro']=($_POST['shortintro']);
-$Info->save($info);            
+
+if(empty($_POST['id'])){
+
+    $info['name']=$_POST['name']; 
+    $info['engname']=($_POST['engname']);
+    $info['birthday']=$_POST['birthday'];
+    $info['hobbies']=serialize($_POST['hobbies']);
+    $info['shortintro']=($_POST['shortintro']);
+    $Info->save($info);            
+}else{
+    $id=$_POST['id'];
+    $info=$Info->find($id);
+    $info['name']=$_POST['name']; 
+    $info['engname']=($_POST['engname']);
+    $info['birthday']=$_POST['birthday'];
+    $info['hobbies']=serialize($_POST['hobbies']);
+    $info['shortintro']=($_POST['shortintro']);
+    $Info->save($info);            
+
+}
 
     
 

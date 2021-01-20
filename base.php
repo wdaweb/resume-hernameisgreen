@@ -10,6 +10,9 @@ $Title=new DB('title');
 $Links=new DB('links');
 $Skills=new DB('skills');
 $Info = new DB('info');
+$Jobs = new DB('jobs');
+$Edu = new DB('edu');
+$Exps = new DB('exps');
 
 class DB{
     protected $dsn="mysql:host=localhost;dbname=resume;charset=utf8";
@@ -67,9 +70,11 @@ class DB{
                     $tmp[]=sprintf("`%s`='%s'",$key,$value);
                 }
                 $sql .= implode(" && ",$tmp);
+                echo $sql;
 
             }else{
                 $sql .= " `id` ='{$id}'";
+                echo $sql;
             }
 
 

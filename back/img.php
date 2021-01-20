@@ -98,13 +98,14 @@
                                                  <input type="hidden" name="id" value=<?=$row['id']?>>
 
                                             <button type="submit" class="btn btn-primary edit-btn">儲存</button>
+                                            <button class="btn del-btn" name="del" value="<?= $row['id']; ?>">刪除</button>
                                         </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
                         <!--  -->
-                        <button class="btn del-btn" name="del" value="<?= $row['id']; ?>">刪除</button>
+                   
                 </td>
             </tr>
         <?php

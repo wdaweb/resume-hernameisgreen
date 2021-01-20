@@ -2,7 +2,7 @@
     table {
         width: 40rem;
 
-        margin: auto;
+        margin: 0 auto 2rem auto;
         border: 3px solid var(--themeDarkest);
 
     }
@@ -87,6 +87,7 @@
                                 <option value="frontend">前端</option>
                                 <option value="backend">後端</option>
                                 <option value="visual">視覺</option>
+                                <option value="language">語言</option>
                                 <option value="misc">其他</option>
                             </select>
                             <p>是否顯示:</p>
@@ -131,6 +132,9 @@
                         case "visual":
                             echo "視覺";
                             break;
+                        case "language":
+                            echo "語言";
+                            break;
                         case "misc":
                             echo "其他";
                             break;
@@ -162,6 +166,9 @@
                                                     後後端
                                                 </option>
                                                 <option value="visual" <?= ($row['tech'] == "visual") ? 'selected' : ''; ?>>
+                                                    視覺
+                                                </option>
+                                                <option value="language" <?= ($row['tech'] == "language") ? 'selected' : ''; ?>>
                                                     視覺
                                                 </option>
                                                 <option value="misc" <?= ($row['tech'] == "misc") ? 'selected' : ''; ?>>
