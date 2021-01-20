@@ -1,5 +1,5 @@
-  
 <?php
+
 date_default_timezone_set("Asia/Taipei");
 session_start();
 
@@ -16,13 +16,15 @@ $Exps = new DB('exps');
 
 class DB{
     protected $dsn="mysql:host=localhost;dbname=resume;charset=utf8";
-    protected $table="";
-    protected $pdo="";
+    protected $table;
+    protected $pdo;
+
     function __construct($table){
         $this->table=$table;
-        $this->pdo=new PDO($this->dsn,"root","");
+        $this->pdo=new PDO($this->dsn,'root','');
     }
 
+    
     function all(...$arg){
         $sql="select * from $this->table ";
         if(isset($arg[0])){
@@ -70,11 +72,9 @@ class DB{
                     $tmp[]=sprintf("`%s`='%s'",$key,$value);
                 }
                 $sql .= implode(" && ",$tmp);
-                echo $sql;
 
             }else{
                 $sql .= " `id` ='{$id}'";
-                echo $sql;
             }
 
 
@@ -103,29 +103,25 @@ class DB{
                 $tmp[]=sprintf("`%s`='%s'",$key,$value);
             }
             $sql="update  $this->table set ".implode(",",$tmp)." where `id`='{$arg['id']}'";
-            echo $sql;
         }else{
             //insert
 
             $sql="insert into $this->table (`".implode("`,`",array_keys($arg))."`) values('".implode("','",$arg)."')";
 
         }
-        echo $sql;
+        //echo $sql;
         return $this->pdo->exec($sql);
     }
     function q($sql){
         return $this->pdo->query($sql)->fetchALL();
     }
-   function setcol($col){
-       $sql="update $this->table set".$col;
-       echo $sql;
-       return $this->pdo->exec($sql);
-   }
+
+
 
 }
 
 
-function to($url){
+function to($url){  
     header("location:".$url);
 }
 

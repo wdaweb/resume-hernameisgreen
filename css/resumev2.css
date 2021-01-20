@@ -457,6 +457,8 @@ nav {
   padding-left: 100px;
   padding-right: 100px;
   background-color: var(--lightTheme);
+  height:100vh;
+  width:100vw;
 }
 .line-five {
   width: 24rem;
@@ -540,9 +542,10 @@ nav {
   height: 2rem;
   background-color: greenyellow;
   border-radius: 20px;
-  display: block;
+  display: inline-block;
   text-align: center;
   margin-bottom: 1rem;
+  margin-right:1rem;
 }
 .port-ul li {
   list-style: none;
@@ -631,4 +634,12 @@ footer {
   background-color: var(--dark);
   width: 39rem;
   height: 0.5rem;
+}
+.con-row{
+  height:80vh;
+  width:100%;
+}
+.left-edu{
+
+  
 }

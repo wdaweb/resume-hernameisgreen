@@ -26,11 +26,11 @@ include_once "base.php";
   <!-- aos js script -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <!-- lottie js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.5/lottie.min.js" integrity="sha512-0bCDSnaX8FOD9Mq8WbHcDwshXwCB5V4EP+UBu87WQgga2b7lAsuEbaSmIZjH/XEmNhJuhrPbFHemre5HZwrk9w==" crossorigin="anonymous"></script>
   <!-- jquery -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.5/lottie.min.js" integrity="sha512-0bCDSnaX8FOD9Mq8WbHcDwshXwCB5V4EP+UBu87WQgga2b7lAsuEbaSmIZjH/XEmNhJuhrPbFHemre5HZwrk9w==" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -211,14 +211,64 @@ include_once "base.php";
   </div>
 </section>
 <section class="mid-sec-seven" id="eduCon">
-<div class="mid-sec-seven-row">
-<h2 class="short-cap" id="con">Education/Looking For... </h2>
+  <div class="mid-sec-seven-row">
+    <h2 class="short-cap" id="con">Education/Looking For... </h2>
     <div class="line-seven"></div>
     <div class="row con-row">
-        <div class="col-6" ></div>
-        <div class="col-6"></div>
+      <div class="col-6 left-edu">
+        <h2>教育程度</h2>
+        <?php
+        $edus = $Edu->all();
+        foreach ($edus as $edu) {
+          echo "<h4>" . $edu['name'] . "</h4>";
+          echo $edu['strt'] . "~" . $edu['end'];
+          echo "<ul>";
+          $cc = unserialize($edu['content']);
+          foreach ($cc as $c) {
+            echo "<li>" . $c . "</li>";
+          }
+          echo "</ul>";
+        }
+
+
+
+        ?>
+      </div>
+      <div class="col-6 right-look">
+        <h2>求職條件</h2>
+        <?php
+        $jobs = $Jobs->all();
+        echo "<ul>";
+        echo "<li>求職條件: ";
+        foreach ($jobs as $job) {
+          $qq = unserialize($job['type']);
+          foreach ($qq as $q) {
+            switch ($q) {
+              case 'fulltime':
+                echo "全職</li>";
+                break;
+              case 'pt':
+                echo "兼職</li>";
+                break;
+              case 'soho':
+                echo "接案</li>";
+                break;
+            }
+          }
+        }
+        echo "<li>可上班日期: " . $job['workday'] . "</li>";
+        echo "<li>職務名稱: " . $job['jobtitle'] . "</li>";
+        echo "<li>希望待遇: " . $job['salary'] . "</li>";
+        echo "<li>求職地區: ";
+        $pp = unserialize($job['area']);
+        foreach ($pp as $p) {
+          echo $p . "&nbsp;&nbsp;";
+        }
+        echo "</ul>";
+        ?>
+      </div>
     </div>
-</div>
+  </div>
 </section>
 <section class="mid-sec-three" id="exp">
   <div class="mid-sec-three-row">
@@ -309,33 +359,49 @@ include_once "base.php";
       <h2 class="short-cap pro-short-cap" id="works">Selected Works</h2>
       <div class="line-five line"></div>
       <?php
-      $works = $Works->all(['sh=>1']);
-
-
-
+      $works = $Works->all(['sh' => 1]);
+      foreach ($works as $key => $value) {
+        if ($key % 2 == 0) {
+          echo " <div class='row mt-3'>";
+        }
 
       ?>
-
-      <!-- <div class="row row-one">
-        <div class="col-xl-4 col-sm-12 pro-block" id="row-1-a">
-          <div class="square">
+        <div class="col-xl-4 col-sm-12 pro-block">
+          <div class="square" style="background-image:url('uploads/<?=$value['img']?>')">
             <div class="text-box">
-              <h4 class="port-heading">perpectual calendar</h4>
-              <span class="hashtag htag">HTML</span>
+              <h4 class="port-heading"><?= $value['name'] ?></h4>
+              <div class="skill-box">
+              <?php
+                $ee = unserialize($value['tech']);
+                foreach ($ee as $e) {
+                  echo "<span class='hashtag htag'>" . $e . " </span>";
+                }
+                ?>
+                </div>
+             
               <ul class="port-ul">
-                <li>可以切換每個月分，並顯示當下日期</li>
-                <li>有小to-do list功能，可以作為簡單提醒事項</li>
-                <li>利用地鐵影像影像與建築創造出都市美學氛圍
-                </li>
+                <?php
+                $ee = unserialize($value['des']);
+                foreach ($ee as $e) {
+                  echo "<li>" . $e . "</li>";
+                }
+
+
+                ?>
               </ul>
               <div class="go-icon ">
-                <a href="#" target="_blank" rel="noopener noreferrer" class="go-link">
+                <a href="<?=$value['link']?>" target="_blank" rel="noopener noreferrer" class="go-link">
                   <i class="fas fa-arrow-right fa-2x go-arrow"></i>
                 </a>
               </div>
             </div>
-
           </div>
+          </div>
+        <?php
+      }
+        ?>
+        <!-- <div class="row row-one">
+        
         </div>
         <div class="col-xl-4 col-sm-12 pro-block" id="row-1-b">
           <div class="square">
@@ -496,8 +562,8 @@ include_once "base.php";
           </div>
         </div>
       </div> -->
+        
     </div>
-  </div>
 </section>
 
 

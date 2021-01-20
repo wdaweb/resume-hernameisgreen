@@ -4,6 +4,7 @@
  */
         margin: 0 auto 2rem auto;
         border: 3px solid var(--themeDarkest);
+        text-align:center;
 
     }
 
@@ -55,13 +56,17 @@
         width: 98%;
     }
 
-    .col-1 {
-        width: 30%;
+    .col-1, .col-2, .col-3, .col-4, .col-5 {
+        width: 10%;
     }
 
-    .col-2 {
-        width: 30%;
+    table ul{
+        text-align:left;
     }
+    .col-6{
+        width:30%;
+    }
+
 </style>
 
 <div class="container">
@@ -80,9 +85,9 @@
                     <form action="api/add_edu.php" method="post">
                         <div class="modal-body d-flex flex-column justify-content-between">
                             <p>教育程度: </p>
-                            <input type="text" name="deg" >
+                            <input type="text" name="deg">
                             <p>學校名稱: </p>
-                            <input type="text" name="name" id="name">                          
+                            <input type="text" name="name" id="name">
                             <p>入學年分: </p>
                             <input type="date" name="strt">
                             <p>畢業年分: </p>
@@ -116,31 +121,32 @@
                 <th scope="col" class="col-6">敘述</th>
                 <th scope="col" class="col-7">編輯</th>
             </tr>
-<?php
-$Edu=new DB('edu');
-$eduu=$Edu->all();
-foreach($eduu as $edu){
+            <?php
+            $Edu = new DB('edu');
+            $eduu = $Edu->all();
+            foreach ($eduu as $edu) {
 
-?>
+            ?>
                 <tr>
-                    <td><?=$edu['deg']?></td>
-                    <td><?=$edu['name']?></td>
-                    <td><?=$edu['strt']?></td>
-                    <td><?=$edu['end']?></td>
+                    <td><?= $edu['deg'] ?></td>
+                    <td><?= $edu['name'] ?></td>
+                    <td><?= $edu['strt'] ?></td>
+                    <td><?= $edu['end'] ?></td>
                     <td><?= ($edu['sh'] == 1) ? '顯示' : '不顯示'; ?></td>
-                    <td><ul>
-                    <?php
+                    <td>
+                        <ul>
+                            <?php
 
-                    $aa=unserialize($edu['content']);
-                    foreach($aa as $a){
-                        echo "<li>.$a.</li>";
-                    }
+                            $aa = unserialize($edu['content']);
+                            foreach ($aa as $a) {
+                                echo "<li>".$a."</li>";
+                            }
 
-?>
-</ul>
+                            ?>
+                        </ul>
                     </td>
                     <td>
-                    <button type="button" class="btn edit-edu-btn" data-bs-toggle="modal" data-bs-target="#edit-edu">編輯</button>
+                        <button type="button" class="btn edit-edu-btn" data-bs-toggle="modal" data-bs-target="#edit-edu">編輯</button>
                         <!-- Modal -->
                         <div class="modal fade" id="edit-edu" tabindex="-1">
                             <div class="modal-dialog">
@@ -151,27 +157,26 @@ foreach($eduu as $edu){
                                     </div>
                                     <form action="api/edit_edu.php" method="post">
 
-                                    <div class="modal-body d-flex flex-column justify-content-between">
-                            <p>教育程度: </p>
-                            <input type="text" name="deg" value=<?=$edu['deg']?> >
-                            <p>學校名稱: </p>
-                            <input type="text" name="name" value= <?=$edu['name']?>                       
-                            <p>入學年分: </p>
-                            <input type="date" name="strt" value= <?=$edu['strt']?>>
-                            <p>畢業年分: </p>
-                            <input type="date" name="end" value= <?=$edu['end']?>>
-                            <p>是否顯示:</p>
-                            <input type="checkbox" name="sh"  value=<?= $edu['id'] ?> <?= ($edu['sh'] == 1) ? 'checked' : '' ?> >
-                            <p>敘述: </p>
-                            <?php
-                                        $rows = unserialize($edu['content']);
-                                        foreach ($rows as $row) {
+                                        <div class="modal-body d-flex flex-column justify-content-between">
+                                            <p>教育程度: </p>
+                                            <input type="text" name="deg" value=<?= $edu['deg'] ?>>
+                                            <p>學校名稱: </p>
+                                            <input type="text" name="name" value=<?= $edu['name'] ?> <p>入學年分: </p>
+                                            <input type="date" name="strt" value=<?= $edu['strt'] ?>>
+                                            <p>畢業年分: </p>
+                                            <input type="date" name="end" value=<?= $edu['end'] ?>>
+                                            <p>是否顯示:</p>
+                                            <input type="checkbox" name="sh" value=<?= $edu['id'] ?> <?= ($edu['sh'] == 1) ? 'checked' : '' ?>>
+                                            <p>敘述: </p>
+                                            <?php
+                                            $rows = unserialize($edu['content']);
+                                            foreach ($rows as $row) {
 
-                                            echo "<input type='text' name='content[]'  value=" . $row . ">";
-                                        }
-                                        ?>
-                            <button type="button" class="addContent">+</button>
-                        </div>
+                                                echo "<input type='text' name='content[]'  value=" . $row . ">";
+                                            }
+                                            ?>
+                                            <button type="button" class="addContent">+</button>
+                                        </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary cancel-btn" data-bs-dismiss="modal">取消</button>
                                             <input type="hidden" name="id" value=<?= $edu['id'] ?>>
@@ -185,17 +190,15 @@ foreach($eduu as $edu){
                         </div>
                     </td>
                 </tr>
-
-
-        </tbody>
-    </table>
-<?php
-}
+                <?php
+            }
 
 ?>
+        </tbody>
+    </table>
+
 </div>
 <script>
-
     $('.addContent').click(function() {
         console.log('you clicked it!');
         $(this).before('<input type="text" name="content[]" >');
