@@ -24,6 +24,6 @@ $id=$_POST['id'];
 
     }
 
-    //to('../back.php?do=skills');
+    to('../back.php?do=skills');
    
   

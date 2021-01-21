@@ -1,9 +1,10 @@
 <style>
     table {
         width: 50rem;
-
+        overflow-y:auto;
         margin: auto;
         border: 3px solid var(--themeDarkest);
+        
     }
 
     th,
@@ -22,11 +23,16 @@
 
     .del-btn {
         margin-left: 1rem;
+        background:var(--darkPeach);
     }
 
     .add-title-btn {
         margin-left: 66.5rem;
         margin-bottom: -4rem;
+    }
+    .cushion{
+        height:5rem;
+        width:100%;
     }
 </style>
 <button type="button" class="btn add-title-btn" data-bs-toggle="modal" data-bs-target="#add-title">
@@ -86,7 +92,7 @@
 
                                     <div class="modal-body d-flex flex-column justify-content-between">
                                         <p>標題內容: </p>
-                                        <input type="text" name="title" id="name" value=<?= $row['title'] ?>>
+                                        <input type="text" name="title" id="title" value="<?= $row['title'] ?>">
                                         <p>是否顯示:
                                         </p>
                                         <input type="checkbox" name="sh" id="sh" value=<?= $row['id'] ?> <?= ($row['sh'] == 1) ? 'checked' : '' ?>>
@@ -97,13 +103,13 @@
                                         <input type="hidden" name="id" value=<?= $row['id'] ?>>
 
                                         <button type="submit" class="btn btn-primary edit-btn">儲存</button>
+                    <button class="btn del-btn" name="del" value="<?= $row['id']; ?>">刪除</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
                     <!--  -->
-                    <button class="btn del-btn" name="del" value="<?= $row['id']; ?>">刪除</button>
                 </td>
                 </td>
             </tr>
@@ -112,3 +118,4 @@
         ?>
     </tbody>
 </table>
+<div class="cushion"></div>

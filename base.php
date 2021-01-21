@@ -115,6 +115,11 @@ class DB{
     function q($sql){
         return $this->pdo->query($sql)->fetchALL();
     }
+    function setcol($col){
+        $sql="update $this->table set".$col;
+        echo $sql;
+        return $this->pdo->exec($sql);
+    }
 
 
 

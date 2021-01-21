@@ -1,9 +1,12 @@
 <style>
     table {
-        width: 65rem;
-        /*  text-align: center; */
-        margin: auto;
+        width: 70rem;
+        margin: 0 auto 2rem auto;
         border: 3px solid var(--themeDarkest);
+        table-layout: auto;
+        
+        text-align: center;
+
     }
 
     th,
@@ -33,6 +36,11 @@
     ul {
         list-style: none;
     }
+
+    tech-ul {
+        margin-left: -2rem;
+    }
+
 </style>
 <button type="button" class="btn add-bio-btn" data-bs-toggle="modal" data-bs-target="#add-works">
     +新增作品
@@ -95,7 +103,7 @@
                 <td><?= ($row['sh'] == 1) ? '顯示' : '不顯示'; ?></td>
                 <td><?= $row['link'] ?></td>
                 <td>
-                    <ul>
+                    <ul class="tech-ul">
                         <?php
                         if (!empty($row['tech'])) {
                             $techs = unserialize($row['tech']);
@@ -137,7 +145,7 @@
                                         </p>
                                         <input type="checkbox" name="sh" id="sh" value=<?= $row['id'] ?> <?= ($row['sh'] == 1) ? 'checked' : '' ?>>
                                         <p>作品連結: </p>
-                                        <input type="text" name="link" value=<?= $row['link'] ?> >
+                                        <input type="text" name="link" value=<?= $row['link'] ?>>
                                         <p>使用技術: </p>
                                         <select name="tech[]" class="tech-select" multiple="multiple">
                                             <option value="html" <?php
@@ -174,7 +182,7 @@
                                         $rowro = unserialize($row['des']);
                                         foreach ($rowro as $ro) {
 
-                                            echo "<input type='text' name='des[]' class='des' value=" . $ro . ">";
+                                            echo "<input type='text' name='des[]' class='des' value='" . $ro . "'>";
                                         }
                                         ?>
 

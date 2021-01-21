@@ -216,11 +216,11 @@ include_once "base.php";
     <div class="line-seven"></div>
     <div class="row con-row">
       <div class="col-6 left-edu">
-        <h2>教育程度</h2>
+        <h2 class="edu-title">教育程度</h2>
         <?php
         $edus = $Edu->all();
         foreach ($edus as $edu) {
-          echo "<h4>" . $edu['name'] . "</h4>";
+          echo "<h4 class='edu-name'>" . $edu['name'] . "</h4>";
           echo $edu['strt'] . "~" . $edu['end'];
           echo "<ul>";
           $cc = unserialize($edu['content']);
@@ -235,10 +235,10 @@ include_once "base.php";
         ?>
       </div>
       <div class="col-6 right-look">
-        <h2>求職條件</h2>
+        <h2 class="job-h">求職條件</h2>
         <?php
         $jobs = $Jobs->all();
-        echo "<ul>";
+        echo "<ul class='job-ul'>";
         echo "<li>求職條件: ";
         foreach ($jobs as $job) {
           $qq = unserialize($job['type']);
@@ -304,7 +304,7 @@ include_once "base.php";
         echo "<h3 class='ele-sub'>" . $exp['title'] . "</h3>";
         echo "<h3 class='period'>📍" . $exp['start'] . "~" . $exp['end'] . "</h3>";
         echo "</div>";
-        echo "<hr class='timeline-hr'>";
+       /*  echo "<hr class='timeline-hr'>"; */
         echo "<ul class='timeline-ul'>";
         $tt = unserialize($exp['list']);
         foreach ($tt as $t) {
@@ -361,8 +361,8 @@ include_once "base.php";
       <?php
       $works = $Works->all(['sh' => 1]);
       foreach ($works as $key => $value) {
-        if ($key % 2 == 0) {
-          echo " <div class='row mt-3'>";
+        if ($key % 3 == 0) {
+          echo " <div class='row mt-5 mb-5'>";
         }
 
       ?>
@@ -400,169 +400,7 @@ include_once "base.php";
         <?php
       }
         ?>
-        <!-- <div class="row row-one">
-        
-        </div>
-        <div class="col-xl-4 col-sm-12 pro-block" id="row-1-b">
-          <div class="square">
-            <div class="text-box">
-              <h4 class="port-heading">perpectual calendar</h4>
-              <span class="hashtag htag">HTML</span>
-              <ul class="port-ul">
-                <li>可以切換每個月分，並顯示當下日期</li>
-                <li>有小to-do list功能，可以作為簡單提醒事項</li>
-                <li>利用地鐵影像影像與建築創造出都市美學氛圍
-                </li>
-              </ul>
-              <div class="go-icon ">
-                <a href="#" target="_blank" rel="noopener noreferrer" class="go-link">
-                  <i class="fas fa-arrow-right fa-2x go-arrow"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-sm-12 pro-block" id="row-1-c">
-          <div class="square">
-            <div class="text-box">
-              <h4 class="port-heading">perpectual calendar</h4>
-              <span class="hashtag htag">HTML</span>
-              <ul class="port-ul">
-                <li>可以切換每個月分，並顯示當下日期</li>
-                <li>有小to-do list功能，可以作為簡單提醒事項</li>
-                <li>利用地鐵影像影像與建築創造出都市美學氛圍
-                </li>
-              </ul>
-              <div class="go-icon ">
-                <a href="#" target="_blank" rel="noopener noreferrer" class="go-link">
-                  <i class="fas fa-arrow-right fa-2x go-arrow"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row row-two">
-        <div class="col-xl-4 col-sm-12 pro-block" id="row-2-a">
-          <div class="square">
-            <div class="text-box">
-              <h4 class="port-heading">perpectual calendar</h4>
-              <span class="hashtag htag">HTML</span>
-              <ul class="port-ul">
-                <li>可以切換每個月分，並顯示當下日期</li>
-                <li>有小to-do list功能，可以作為簡單提醒事項</li>
-                <li>利用地鐵影像影像與建築創造出都市美學氛圍
-                </li>
-              </ul>
-              <div class="go-icon ">
-                <a href="#" target="_blank" rel="noopener noreferrer" class="go-link">
-                  <i class="fas fa-arrow-right fa-2x go-arrow"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-sm-12 pro-block" id="row-2-b">
-          <div class="square">
-            <div class="text-box">
-              <h4 class="port-heading">perpectual calendar</h4>
-              <span class="hashtag htag">HTML</span>
-              <ul class="port-ul">
-                <li>可以切換每個月分，並顯示當下日期</li>
-                <li>有小to-do list功能，可以作為簡單提醒事項</li>
-                <li>利用地鐵影像影像與建築創造出都市美學氛圍
-                </li>
-              </ul>
-              <div class="go-icon ">
-                <a href="#" target="_blank" rel="noopener noreferrer" class="go-link">
-                  <i class="fas fa-arrow-right fa-2x go-arrow"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-sm-12 pro-block" id="row-2-c">
-          <div class="square">
-            <div class="text-box">
-              <h4 class="port-heading">perpectual calendar</h4>
-              <span class="hashtag htag">HTML</span>
-              <ul class="port-ul">
-                <li>可以切換每個月分，並顯示當下日期</li>
-                <li>有小to-do list功能，可以作為簡單提醒事項</li>
-                <li>利用地鐵影像影像與建築創造出都市美學氛圍
-                </li>
-              </ul>
-              <div class="go-icon ">
-                <a href="#" target="_blank" rel="noopener noreferrer" class="go-link">
-                  <i class="fas fa-arrow-right fa-2x go-arrow"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
 
-      </div>
-
-      <div class="row row-three">
-        <div class="col-xl-4 col-sm-12 pro-block" id="row-3-a">
-          <div class="square">
-            <div class="text-box">
-              <h4 class="port-heading">perpectual calendar</h4>
-              <span class="hashtag htag">HTML</span>
-              <ul class="port-ul">
-                <li>可以切換每個月分，並顯示當下日期</li>
-                <li>有小to-do list功能，可以作為簡單提醒事項</li>
-                <li>利用地鐵影像影像與建築創造出都市美學氛圍
-                </li>
-              </ul>
-              <div class="go-icon ">
-                <a href="#" target="_blank" rel="noopener noreferrer" class="go-link">
-                  <i class="fas fa-arrow-right fa-2x go-arrow"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-sm-12 pro-block" id="row-3-b">
-          <div class="square">
-            <div class="text-box">
-              <h4 class="port-heading">perpectual calendar</h4>
-              <span class="hashtag htag">HTML</span>
-              <ul class="port-ul">
-                <li>可以切換每個月分，並顯示當下日期</li>
-                <li>有小to-do list功能，可以作為簡單提醒事項</li>
-                <li>利用地鐵影像影像與建築創造出都市美學氛圍
-                </li>
-              </ul>
-              <div class="go-icon ">
-                <a href="#" target="_blank" rel="noopener noreferrer" class="go-link">
-                  <i class="fas fa-arrow-right fa-2x go-arrow"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-sm-12 pro-block" id="row-3-c">
-          <div class="square">
-            <div class="text-box">
-              <h4 class="port-heading">perpectual calendar</h4>
-              <span class="hashtag htag">HTML</span>
-              <ul class="port-ul">
-                <li>可以切換每個月分，並顯示當下日期</li>
-                <li>有小to-do list功能，可以作為簡單提醒事項</li>
-                <li>利用地鐵影像影像與建築創造出都市美學氛圍
-                </li>
-              </ul>
-              <div class="go-icon ">
-                <a href="#" target="_blank" rel="noopener noreferrer" class="go-link">
-                  <i class="fas fa-arrow-right fa-2x go-arrow"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-        
     </div>
 </section>
 
